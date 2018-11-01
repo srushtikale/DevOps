@@ -13,11 +13,11 @@ from datetime import datetime
 #print("Command to Force install Cluster: "+force_start_cmd)
 #disc_status = subprocess.call(force_start_cmd, shell=True)
 time.sleep(3)
-print('cluster url is '+cluster_strict.CLUSTER_URL)
+#print('cluster url is '+cluster_strict.CLUSTER_URL)
 
 pkg_task_value = subprocess.check_output('dcos package install dcos-enterprise-cli --yes', shell=True)
   #  sdk_security.delete_service_account('prometheus_service_account','dcos_prometheus_secret')
-pkg_task_value = subprocess.check_output('curl -k -v '+cluster_strict.CLUSTER_URL+'/ca/dcos-ca.crt -o dcos-ca.crt', shell=True)
+#pkg_task_value = subprocess.check_output('curl -k -v '+cluster_strict.CLUSTER_URL+'/ca/dcos-ca.crt -o dcos-ca.crt', shell=True)
 pkg_task_value = os.system('export LC_ALL=C.UTF-8')
 pkg_task_value = os.system('export LANG=C.UTF-8')
 pkg_task_value = os.system('dcos security org service-accounts keypair prometheus-private-key.pem prometheus-public-key.pem')
