@@ -10,8 +10,8 @@ from datetime import datetime
 #def create_service_account(service_account_name, service_account_secret,strict):  
 #force_start_cmd = "rm -rf ~/.dcos && rm -rf /usr/local/bin/dcos && [ -d /usr/local/bin ] || mkdir -p /usr/local/bin && curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.10/dcos -o dcos && mv dcos /usr/local/bin && chmod +x /usr/local/bin/dcos && dcos cluster setup "+cluster_strict.CLUSTER_URL+" --insecure --username=bootstrapuser --password=deleteme"
 
-print("Command to Force install Cluster: "+force_start_cmd)
-disc_status = subprocess.call(force_start_cmd, shell=True)
+#print("Command to Force install Cluster: "+force_start_cmd)
+#disc_status = subprocess.call(force_start_cmd, shell=True)
 time.sleep(3)
 print('cluster url is '+cluster_strict.CLUSTER_URL)
 
