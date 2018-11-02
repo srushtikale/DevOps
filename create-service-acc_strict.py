@@ -7,6 +7,15 @@ import string
 from datetime import datetime
 import cluster_strict
 
+#def create_service_account(service_account_name, service_account_secret,strict):  
+force_start_cmd = "sudo rm -rf ~/.dcos && sudo rm -rf /usr/local/bin/dcos && [ -d /usr/local/bin ] || sudo mkdir -p /usr/local/bin && curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.10/dcos -o dcos && sudo mv dcos /usr/local/bin && sudo chmod +x /usr/local/bin/dcos && dcos cluster setup "+cluster_strict.CLUSTER_URL+" --insecure --username=bootstrapuser --password=deleteme"
+
+print("Command to Force install Cluster: "+force_start_cmd)
+disc_status = subprocess.call(force_start_cmd, shell=True)
+time.sleep(3)
+print('cluster url is '+cluster_strict.CLUSTER_URL)
+
+pkg_task_value = subprocess.check_output('dcos package install dcos-enterprise-cli --yes', shell=True)
 pkg_task_value = subprocess.check_output('curl -k -v '+cluster_strict.CLUSTER_URL+'/ca/dcos-ca.crt -o dcos-ca.crt', shell=True)
 pkg_task_value = os.system('export LC_ALL=C.UTF-8')
 pkg_task_value = os.system('export LANG=C.UTF-8')
